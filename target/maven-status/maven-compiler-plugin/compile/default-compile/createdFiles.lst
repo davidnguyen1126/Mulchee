@@ -1,0 +1,5 @@
+com/example/Mulchee/service/UserService.class
+com/example/Mulchee/MulcheeApplication.class
+com/example/Mulchee/model/Users.class
+com/example/Mulchee/repo/UsersRepo.class
+com/example/Mulchee/controller/Controller.class
