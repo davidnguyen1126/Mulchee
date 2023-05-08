@@ -2,9 +2,9 @@ package com.example.Mulchee.repo;
 
 import com.example.Mulchee.model.food.Food;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import org.springframework.stereotype.Repository;
 
-@RepositoryRestResource(collectionResourceRel = "food", path="food")
+@Repository
 public interface FoodRepo extends JpaRepository<Food, Long> {
 
 }

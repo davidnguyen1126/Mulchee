@@ -2,21 +2,19 @@ package com.example.Mulchee.model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Data
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 @Entity
 public abstract class Base {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    public long id;
+    private long id;
 
-    public Date dateCreated;
+    private Date dateCreated;
 
-    public Date dateModified;
+    private Date dateModified;
 }

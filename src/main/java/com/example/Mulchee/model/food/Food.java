@@ -1,9 +1,11 @@
 package com.example.Mulchee.model.food;
 
 import com.example.Mulchee.model.Base;
+import lombok.Data;
 
 import javax.persistence.Entity;
 
+@Data
 @Entity
 public class Food extends Base {
 

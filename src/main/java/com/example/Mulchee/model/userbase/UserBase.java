@@ -8,26 +8,26 @@ import java.util.Date;
 
 @Data
 @Entity
-public abstract class UserBase extends Base {
+public class UserBase extends Base {
 
-    public String firstName;
+    private String firstName;
 
-    public String lastName;
+    private String lastName;
 
-    public String email;
+    private String email;
 
-    public String address;
+    private String address;
 
-    public String city;
+    private String city;
 
-    public String stateOrProvince;
+    private String stateOrProvince;
 
-    public long zipCode;
+    private long zipCode;
 
-    public String country;
+    private String country;
 
-    public long phoneNumber;
+    private long phoneNumber;
 
-    public Date lastLoginDate;
+    private Date lastLoginDate;
 
 }

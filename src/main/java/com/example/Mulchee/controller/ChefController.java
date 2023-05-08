@@ -27,7 +27,7 @@ public class ChefController {
     public ResponseEntity<Map<String, Object>> getAllChefs() {
         Map<String, Object> response = new HashMap<>();
         try {
-            response.put("Chef", chefService.getAllChefs());
+            response.put("Chefs", chefService.getAllChefs());
         } catch (Exception e) {
             response.put("Error", e.getCause());
             return ResponseEntity.badRequest().body(response);
@@ -68,5 +68,17 @@ public class ChefController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
         return ResponseEntity.ok("Chef deleted");
+    }
+
+    // DO NOT USE, only for testing purposes
+    @DELETE
+    @RequestMapping("/deleteAll")
+    public ResponseEntity<String> deleteAll() {
+        try {
+            chefService.deleteAll();
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+        return ResponseEntity.ok("All chefs deleted");
     }
 }

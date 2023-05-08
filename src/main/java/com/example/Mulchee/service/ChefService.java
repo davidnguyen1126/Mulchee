@@ -22,11 +22,14 @@ public class ChefService {
     }
 
     public void addChef(Chef chef) {
-        Chef chef2 = chefRepo.save(chef);
-        String two = "";
+        chefRepo.save(chef);
     }
 
     public void deleteChefById(long id) {
         chefRepo.deleteById(id);
+    }
+
+    public void deleteAll() {
+        chefRepo.deleteAll();
     }
 }
