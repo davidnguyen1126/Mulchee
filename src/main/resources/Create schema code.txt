@@ -1,0 +1,66 @@
+CREATE TABLE chef (
+	id serial primary key,
+	first_name character varying(30) NOT NULL,
+	last_name character varying(30) NOT NULL,
+	email character varying(100) NOT NULL,
+	address character varying(50) NOT NULL,
+	city character varying(50) NOT NULL,
+	state_or_province character varying(20) NOT NULL,
+	zipcode character varying(10) NOT NULL,
+	country character varying(30) NOT NULL,
+	phone_number character varying(20) NOT NULL,
+	food_type character varying(50) NOT NULL,
+	store_name character varying(50) NOT NULL,
+	date_created date NOT NULL DEFAULT current_date,
+	date_modified date NOT NULL DEFAULT current_date,
+	last_login_date date NOT NULL DEFAULT current_date
+);
+
+CREATE TABLE consumer (
+	id serial primary key,
+	first_name character varying(30) NOT NULL,
+	last_name character varying(30) NOT NULL,
+	email character varying(100) NOT NULL,
+	address character varying(50) NOT NULL,
+	city character varying(50) NOT NULL,
+	state_or_province character varying(20) NOT NULL,
+	zipcode character varying(10) NOT NULL,
+	country character varying(30) NOT NULL,
+	phone_number character varying(20) NOT NULL,
+	date_created date NOT NULL DEFAULT current_date,
+	date_modified date NOT NULL DEFAULT current_date,
+	last_login_date date NOT NULL DEFAULT current_date
+);
+
+CREATE TABLE food (
+	id serial primary key,
+	chef_id integer references chef(id),
+	food_name character varying(30) NOT NULL,
+	price money NOT NULL,
+	description character varying(500) NOT NULL,
+	category character varying(50) NOT NULL,
+	date_created date NOT NULL DEFAULT current_date,
+	date_modified date NOT NULL DEFAULT current_date,
+	last_login_date date NOT NULL DEFAULT current_date
+);
+
+CREATE TABLE food_offerings (
+	id serial primary key,
+	chef_id integer references chef(id),
+	food_id integer references food(id)
+);
+
+CREATE TABLE favorite_chefs (
+	id serial primary key,
+	consumer_id integer references consumer(id),
+	chef_id integer references chef(id)
+);
+
+CREATE TABLE favorite_foods (
+	consumer_id integer references consumer(id),
+	food_id integer references food(id),
+	id serial primary key
+);
+
+-- DROP SCHEMA public CASCADE;
+-- CREATE SCHEMA public;
