@@ -1,6 +1,8 @@
 package com.example.Mulchee.model;
 
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -14,7 +16,9 @@ public abstract class Base {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private long id;
 
-    private Date dateCreated;
+    @CreationTimestamp
+    private Date createdDate;
 
-    private Date dateModified;
+    @LastModifiedDate
+    private Date lastModifiedDate;
 }

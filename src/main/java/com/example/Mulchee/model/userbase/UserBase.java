@@ -4,7 +4,6 @@ import com.example.Mulchee.model.Base;
 import lombok.Data;
 
 import javax.persistence.Entity;
-import java.util.Date;
 
 @Data
 @Entity
@@ -27,7 +26,5 @@ public class UserBase extends Base {
     private String country;
 
     private long phoneNumber;
-
-    private Date lastLoginDate;
 
 }
