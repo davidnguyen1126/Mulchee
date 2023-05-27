@@ -27,4 +27,6 @@ public class UserBase extends Base {
 
     private long phoneNumber;
 
+    private Boolean isChef;
+
 }

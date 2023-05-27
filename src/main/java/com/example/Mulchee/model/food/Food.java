@@ -17,5 +17,5 @@ public class Food extends Base {
 
     private String category;
 
-    private long chefId;
+    private long storeId;
 }

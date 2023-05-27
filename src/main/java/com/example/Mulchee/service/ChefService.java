@@ -5,6 +5,7 @@ import com.example.Mulchee.repo.ChefRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.ws.rs.core.Response;
 import java.util.List;
 
 @Service
@@ -21,8 +22,8 @@ public class ChefService {
         return chefRepo.getReferenceById(id);
     }
 
-    public void addChef(Chef chef) {
-        chefRepo.save(chef);
+    public Chef addChef(Chef chef) {
+       return chefRepo.save(chef);
     }
 
     public void deleteChefById(long id) {
