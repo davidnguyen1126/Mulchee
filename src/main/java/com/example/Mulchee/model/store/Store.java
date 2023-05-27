@@ -16,7 +16,7 @@ public class Store extends Base {
     private String city;
     private String cuisineType;
     private String stateOrProvince;
-    private String zipCode;
+    private long zipCode;
     private String country;
 
     @ManyToOne(optional = false)

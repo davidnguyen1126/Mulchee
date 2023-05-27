@@ -50,6 +50,7 @@ public class StoreController {
     @POST
     @RequestMapping("/addStore")
     public ResponseEntity<String> addStore(@RequestBody Store store) {
+        System.out.println(store);
         try {
             storeService.addStore(store);
         } catch (Exception e) {
