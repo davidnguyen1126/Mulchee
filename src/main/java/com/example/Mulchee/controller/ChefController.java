@@ -7,6 +7,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.ws.rs.DELETE;
@@ -49,14 +50,17 @@ public class ChefController {
     }
 
     @POST
+    @ResponseBody
     @RequestMapping("/addChef")
-    public ResponseEntity<String> addChef(@RequestBody Chef chef) {
+    public ResponseEntity<Map<String,Object>> addChef(@RequestBody  Chef chef) {
+        Map<String, Object> response = new HashMap<>();
         try {
-            chefService.addChef(chef);
+           Chef result = chefService.addChef(chef);
+           response.put("chef", result);
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
+            return ResponseEntity.badRequest().body(response);
         }
-        return ResponseEntity.ok("Chef Added");
+        return ResponseEntity.ok(response);
     }
 
     @DELETE
