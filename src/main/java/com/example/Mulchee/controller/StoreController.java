@@ -49,14 +49,16 @@ public class StoreController {
 
     @POST
     @RequestMapping("/addStore")
-    public ResponseEntity<String> addStore(@RequestBody Store store) {
-        System.out.println(store);
+    public ResponseEntity<Map<String,Object>> addStore(@RequestBody Store store) {
+        Map<String, Object> response = new HashMap<>();
         try {
-            storeService.addStore(store);
+            Store result = storeService.addStore(store);
+            response.put("store", result);
+
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
+            return ResponseEntity.badRequest().body(response);
         }
-        return ResponseEntity.ok("Store Added");
+        return ResponseEntity.ok(response);
     }
 
     @DELETE
@@ -67,6 +69,6 @@ public class StoreController {
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
-        return ResponseEntity.ok("Food deleted");
+        return ResponseEntity.ok("Store deleted");
     }
 }

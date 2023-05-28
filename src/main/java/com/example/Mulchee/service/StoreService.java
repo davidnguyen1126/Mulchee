@@ -20,8 +20,8 @@ public class StoreService {
         return storeRepo.getReferenceById(id);
     }
 
-    public void addStore(Store store) {
-        storeRepo.save(store);
+    public Store addStore(Store store) {
+       return storeRepo.save(store);
     }
 
     public void deleteStoreById(long id) {

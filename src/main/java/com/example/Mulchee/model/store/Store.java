@@ -1,11 +1,11 @@
 package com.example.Mulchee.model.store;
 import com.example.Mulchee.model.Base;
 import com.example.Mulchee.model.userbase.usertype.Chef;
+import com.example.Mulchee.model.food.Food;
 import lombok.Data;
+import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Data
 @Entity
@@ -22,4 +22,8 @@ public class Store extends Base {
     @ManyToOne(optional = false)
     @JoinColumn(name="chef_id", nullable=false, referencedColumnName = "id")
     private Chef chef;
+
+
+    @OneToMany(mappedBy = "store", cascade = CascadeType.ALL)
+    private List<Food> menu;
 }

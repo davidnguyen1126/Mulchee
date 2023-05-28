@@ -23,9 +23,7 @@ public class ChefService {
         return chefRepo.getReferenceById(id);
     }
     public Chef addChef(Chef chef) {
-        Chef savedChef = chefRepo.save(chef);
-        return savedChef;
-
+      return chefRepo.save(chef);
     }
 
     public void deleteChefById(long id) {
