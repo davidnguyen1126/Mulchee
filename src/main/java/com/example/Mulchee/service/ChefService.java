@@ -25,6 +25,10 @@ public class ChefService {
         chefRepo.save(chef);
     }
 
+    public void addFoodOfferings(long foodId) {
+
+    }
+
     public void deleteChefById(long id) {
         chefRepo.deleteById(id);
     }

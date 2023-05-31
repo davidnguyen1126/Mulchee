@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -57,6 +58,17 @@ public class ChefController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
         return ResponseEntity.ok("Chef Added");
+    }
+
+    @PUT
+    @RequestMapping("/addFoodOfferings")
+    public ResponseEntity<Object> addFoodOfferings(@Param("foodId") long foodId) {
+        try {
+            chefService.addFoodOfferings(foodId);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+        return ResponseEntity.ok("Food Added");
     }
 
     @DELETE
