@@ -3,6 +3,7 @@ import com.example.Mulchee.model.Base;
 import com.example.Mulchee.model.userbase.usertype.Chef;
 import com.example.Mulchee.model.food.Food;
 import lombok.Data;
+
 import java.util.List;
 
 import javax.persistence.*;

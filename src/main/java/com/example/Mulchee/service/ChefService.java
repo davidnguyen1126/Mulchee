@@ -4,10 +4,9 @@ import com.example.Mulchee.model.userbase.usertype.Chef;
 import com.example.Mulchee.repo.ChefRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.ws.rs.core.Response;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ChefService {
@@ -19,8 +18,8 @@ public class ChefService {
         return chefRepo.findAll();
     }
 
-    public Chef getChefById(long id) {
-        return chefRepo.getReferenceById(id);
+    public Optional<Chef> getChefById(long id) {
+        return chefRepo.findById(id);
     }
     public Chef addChef(Chef chef) {
       return chefRepo.save(chef);
