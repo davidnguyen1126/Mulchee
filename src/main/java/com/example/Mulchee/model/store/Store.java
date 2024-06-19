@@ -23,8 +23,13 @@ public class Store extends Base {
     @ManyToOne(optional = false)
     @JoinColumn(name="chef_id", nullable=false, referencedColumnName = "id")
     private Chef chef;
+    private long chefId;
 
 
     @OneToMany(mappedBy = "store", cascade = CascadeType.ALL)
     private List<Food> menu;
+
+    public long getChefId() {
+        return chefId;
+    }
 }

@@ -1,6 +1,8 @@
 package com.example.Mulchee.controller;
 
 import com.example.Mulchee.model.store.Store;
+import com.example.Mulchee.model.userbase.usertype.Chef;
+import com.example.Mulchee.service.ChefService;
 import com.example.Mulchee.service.StoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
@@ -22,6 +24,9 @@ public class StoreController {
     @Autowired
     StoreService storeService;
 
+    @Autowired
+    ChefService chefService;
+
     @GET
     @RequestMapping("/getAllStores")
     public ResponseEntity<Map<String, Object>> getAllStores(){
@@ -34,6 +39,7 @@ public class StoreController {
         }
         return ResponseEntity.ok(response);
     }
+
     @GET
     @RequestMapping("/getStoreById")
     public ResponseEntity<Map<String, Object>> getStoreById(@Param("id") long id) {
@@ -52,7 +58,9 @@ public class StoreController {
     public ResponseEntity<Map<String,Object>> addStore(@RequestBody Store store) {
         Map<String, Object> response = new HashMap<>();
         try {
+            Chef newChef = chefService.getChefById(store.getChefId());
             Store result = storeService.addStore(store);
+
             response.put("store", result);
 
         } catch (Exception e) {
