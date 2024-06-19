@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Mulchee.iml" filepath="$PROJECT_DIR$/.idea/Mulchee.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Mulchee.iml" filepath="$PROJECT_DIR$/Mulchee.iml" />
     </modules>
   </component>
 </project>
